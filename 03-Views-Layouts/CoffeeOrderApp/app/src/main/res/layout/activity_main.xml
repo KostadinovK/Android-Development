@@ -5,55 +5,117 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/padding_medium"
-    tools:context="com.example.kostadin.coffeeorderapp.MainActivity">
+
+    tools:context="com.example.kostadin.coffeeorderapp.MainActivity"
+    android:background="@drawable/image"
+    >
+
+
 
     <EditText
         android:id="@+id/edt_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_marginLeft="16dp"
         android:hint="@string/name"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColorHighlight="@color/white"
+         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/toppings"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/extras"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
         android:textAllCaps="true"
+        android:textSize="24sp"
 
         />
-
-    <CheckBox
-        android:id="@+id/cb_sugar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/extra_sugar" />
-
-    <CheckBox
-        android:id="@+id/cb_cream"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cream" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/quantity"
-        android:textAllCaps="true" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <CheckBox
+                android:id="@+id/cb_sugar"
+                android:layout_marginLeft="16dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textColorLink="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/medium_fontSize"
+                android:text="@string/extra_sugar" />
+
+            <CheckBox
+                android:id="@+id/cb_cream"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_fontSize"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"
+                android:text="@string/cream" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="64dp">
+            <CheckBox
+                android:id="@+id/cb_milk"
+                android:textColor="@color/white"
+                android:textColorLink="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/milk"
+                android:textSize="@dimen/medium_fontSize"/>
+
+            <CheckBox
+                android:id="@+id/cb_bisquit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorPrimary"
+                android:text="@string/biscuit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_fontSize"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quantity"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="24sp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <Button
             android:id="@+id/btn_less"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
             android:text="-" />
 
         <TextView
@@ -62,18 +124,58 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/padding_medium"
             android:layout_marginRight="@dimen/padding_medium"
-            android:text="1" />
+            android:textColor="@color/white"
+            android:text="1"
+            android:textSize="@dimen/medium_fontSize"/>
 
         <Button
             android:id="@+id/btn_more"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
             android:text="+" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_order"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Order" />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_checkPrice"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/check_price"
+            android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/tv_totalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:text="Total Price: 0 $"
+            android:textSize="36sp"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_order"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:text="Order"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
 </LinearLayout>

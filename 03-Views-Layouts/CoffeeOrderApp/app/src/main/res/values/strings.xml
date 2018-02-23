@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">CoffeeOrderApp</string>
     <string name="name">Name</string>
-    <string name="toppings">Toppings</string>
     <string name="extra_sugar">Extra Sugar</string>
     <string name="cream">Cream</string>
     <string name="quantity">Quantity</string>
+    <string name="extras">Addons</string>
+    <string name="milk">Milk</string>
+    <string name="biscuit">Biscuit</string>
+    <string name="check_price">Check Price</string>
 </resources>
