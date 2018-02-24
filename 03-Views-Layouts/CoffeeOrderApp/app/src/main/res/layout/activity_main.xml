@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:backgroundTint="@color/colorPrimary"
         android:layout_marginLeft="16dp"
         android:hint="@string/name"
@@ -161,6 +162,13 @@
             android:textSize="36sp"
             />
     </LinearLayout>
+    <TextView
+        android:id="@+id/tv_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="36sp"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

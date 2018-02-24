@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_check;
     TextView totalPrice;
     Button orderBtn;
+    TextView tv_confirm;
 
 
     @Override
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         btn_check = findViewById(R.id.btn_checkPrice);
         more = findViewById(R.id.btn_more);
         orderBtn = findViewById(R.id.btn_order);
+        tv_confirm = findViewById(R.id.tv_confirm);
 
         less.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,12 +87,12 @@ public class MainActivity extends AppCompatActivity {
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                price = 0;
+                String quantityStr = tv_quantity.getText().toString();
+                quantity = Integer.parseInt(quantityStr);
+                price = pricePerCoffee;
                 if(milk.isChecked() || cream.isChecked() || sugar.isChecked() || bisquit.isChecked()){
-                    if(quantity == 1){
-                        price += pricePerCoffee;
-                    }else{
-                        price += pricePerCoffee * quantity;
+                    if(quantity != 1){
+                        price += pricePerCoffee * (quantity-1);
                     }
                     if(milk.isChecked()){
                         price += milkPrice;
@@ -105,12 +107,9 @@ public class MainActivity extends AppCompatActivity {
                         price += bisquitPrice;
                     }
                 }else{
-                    if(quantity == 1){
-                        price += pricePerCoffee;
-                    }else{
-                        price += quantity * pricePerCoffee;
+                    if(quantity != 1){
+                        price += (quantity-1) * pricePerCoffee;
                     }
-
                 }
                 totalPrice.setText("Total Price: " + String.format( "%.2f", price ) + "$");
             }
@@ -166,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
                 emailIntent.putExtra(Intent.EXTRA_TEXT, order);
                 startActivity(emailIntent);
 
+                tv_confirm.setText("Your order is confirmed!\nTotal Price: " + String.format("%.2f",price) + " $");
             }
         });
     }
