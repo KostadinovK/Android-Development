@@ -1,0 +1,27 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/birthday">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="#ffffff"
+        android:text="Happy bithday, Ben!"
+        android:textSize="38sp"
+        android:paddingTop="16dp"
+        android:paddingLeft="12dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="right"
+        android:textColor="#ffffff"
+        android:text="From, Lyla!"
+        android:textSize="38sp"
+        android:paddingBottom="18dp"
+        android:paddingRight="16dp"/>
+
+</RelativeLayout>

@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CoffeeOrderApp.iml" filepath="$PROJECT_DIR$/CoffeeOrderApp.iml" />
-      <module fileurl="file://D:\SoftUni Courses\Android Development\Android-Development\03-Views-Layouts\CoffeeOrderApp\CoffeeOrderApp.iml" filepath="D:\SoftUni Courses\Android Development\Android-Development\03-Views-Layouts\CoffeeOrderApp\CoffeeOrderApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\SoftUni Courses\Android Development\Android-Development\03-Views-Layouts\CoffeeOrderApp\app\app.iml" filepath="D:\SoftUni Courses\Android Development\Android-Development\03-Views-Layouts\CoffeeOrderApp\app\app.iml" />
     </modules>
   </component>
 </project>

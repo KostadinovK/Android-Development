@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">someNextLevelDesign</string>
+    <string name="feed">FEED</string>
+    <string name="stories">STORIES</string>
+    <string name="campaigns">CAMPAIGNS</string>
+    <string name="user_one">FRANCISCO WATSON</string>
+    <string name="time_one">TODAY, 10:52AM</string>
+    <string name="text_one">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin nisl erat, sed suscipit sem egestas non. Aliquam tincidunt faucibus augue ac viverra.</string>
+    <string name="send_a_gift">SEND A GIFT</string>
+    <string name="user_two">JOHN SMITH</string>
+    <string name="time_two">TODAY, 10:34AM</string>
+    <string name="text_two">What a gorgeous sunset!</string>
+    <string name="scanner">SCANNER</string>
+    <string name="gifts">GIFTS</string>
+    <string name="profile">PROFILE</string>
+</resources>
