@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/search"
+                android:src="@mipmap/search"
                 android:background="@color/primary_color"
                 android:paddingRight="@dimen/medium_padding" />
         </RelativeLayout>
@@ -118,7 +118,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="@dimen/medium_padding"
-                            android:src="@drawable/avatar" />
+                            android:src="@mipmap/avatar" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -155,14 +155,14 @@
                             android:background="@color/white"
                             android:paddingRight="12dp"
                             android:paddingTop="12dp"
-                            android:src="@drawable/more" />
+                            android:src="@mipmap/more" />
                     </RelativeLayout>
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="256dp"
-                        android:src="@drawable/image_story"
-                        android:background="@drawable/ornaments_four"
+                        android:src="@mipmap/image_story"
+                        android:background="@mipmap/ornaments_four"
                         />
 
                     <TextView
@@ -184,7 +184,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="12dp"
                             android:background="@color/white"
-                            android:src="@drawable/thank_red" />
+                            android:src="@mipmap/thank_red" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -200,7 +200,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="22dp"
                             android:background="@color/white"
-                            android:src="@drawable/share_gray" />
+                            android:src="@mipmap/share_gray" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -237,7 +237,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="@dimen/medium_padding"
-                            android:src="@drawable/avatar_two" />
+                            android:src="@mipmap/avatar_two" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -274,13 +274,13 @@
                             android:background="@color/white"
                             android:paddingRight="12dp"
                             android:paddingTop="12dp"
-                            android:src="@drawable/more" />
+                            android:src="@mipmap/more" />
                     </RelativeLayout>
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="256dp"
-                        android:src="@drawable/sunset" />
+                        android:src="@mipmap/sunset" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -301,7 +301,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="12dp"
                             android:background="@color/white"
-                            android:src="@drawable/thank_red" />
+                            android:src="@mipmap/thank_red" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -317,7 +317,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="22dp"
                             android:background="@color/white"
-                            android:src="@drawable/share_gray" />
+                            android:src="@mipmap/share_gray" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -350,7 +350,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/feed_red"
+            android:drawableTop="@mipmap/feed_red"
             android:text="@string/feed"
             android:textColor="@color/primary_color"
             android:background="@color/white"
@@ -362,7 +362,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/scanner_gray"
+            android:drawableTop="@mipmap/scanner_gray"
             android:text="@string/scanner"
             android:textColor="@color/gray"
             android:background="@color/white"
@@ -373,7 +373,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/gifts_gray"
+            android:drawableTop="@mipmap/gifts_gray"
             android:text="@string/gifts"
             android:textColor="@color/gray"
             android:background="@color/white"
@@ -386,7 +386,7 @@
             android:layout_weight="1"
             android:paddingTop="16dp"
             android:paddingBottom="6dp"
-            android:drawableTop="@drawable/profile_gray"
+            android:drawableTop="@mipmap/profile_gray"
             android:text="@string/profile"
             android:textColor="@color/gray"
             android:background="@color/white"/>
