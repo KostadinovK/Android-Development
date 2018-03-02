@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TenGag</string>
+    <string name="home">HOME</string>
+    <string name="explore">EXPLORE</string>
+    <string name="videos">Videos</string>
+    <string name="news">News</string>
+    <string name="profile">Profile</string>
+    <string name="welcome">Welcome to 10gag!</string>
+    <string name="welcome_description">A 9gag version for programmers</string>
+</resources>
