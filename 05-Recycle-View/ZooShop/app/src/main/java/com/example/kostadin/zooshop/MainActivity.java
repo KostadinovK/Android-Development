@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RecyclerView recyclerView = findViewById(R.id.rec_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<Accessory> data = ZooDatabase.getDatabase();
+        List<BaseItem> data = ZooDatabase.getDatabase();
         AccessoryAdapter adapter = new AccessoryAdapter(data);
         recyclerView.setAdapter(adapter);
     }

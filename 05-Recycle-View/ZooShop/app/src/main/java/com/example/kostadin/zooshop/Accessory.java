@@ -4,7 +4,7 @@ package com.example.kostadin.zooshop;
  * Created by Kostadin Kostadinov on 01/03/2018.
  */
 
-public class Accessory {
+public class Accessory extends BaseItem {
 
     private String name;
     private String description;

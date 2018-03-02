@@ -18,7 +18,7 @@ import butterknife.OnClick;
  * Created by Kostadin Kostadinov on 01/03/2018.
  */
 
-class AccessoryViewHolder extends RecyclerView.ViewHolder {
+class AccessoryViewHolder extends BaseViewHolder<Accessory> {
 
     @BindView(R.id.txt_name) TextView txt_name;
     @BindView(R.id.img_item) ImageView img_item;
@@ -37,7 +37,7 @@ class AccessoryViewHolder extends RecyclerView.ViewHolder {
         btn_like.setEnabled(false);
         dataItem.setLiked();
     }
-
+    @Override
     public void setData(Accessory item){
         this.dataItem = item;
         txt_name.setText(item.getName());
