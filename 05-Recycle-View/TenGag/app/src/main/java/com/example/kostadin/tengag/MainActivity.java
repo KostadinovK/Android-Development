@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RecyclerView recyclerView = findViewById(R.id.rec_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<Meme> data = AppDatabase.getData();
+        List<BaseModel> data = AppDatabase.getData();
         MemeAdapter memeAdapter = new MemeAdapter(data);
         recyclerView.setAdapter(memeAdapter);
     }

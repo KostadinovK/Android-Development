@@ -4,7 +4,7 @@ package com.example.kostadin.tengag;
  * Created by Kostadin Kostadinov on 02/03/2018.
  */
 
-public class Meme {
+public class Meme extends BaseModel{
     private String title;
     private String memeUrl;
     private String points;

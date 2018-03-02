@@ -12,23 +12,40 @@ import java.util.zip.Inflater;
  * Created by Kostadin Kostadinov on 02/03/2018.
  */
 
-class MemeAdapter extends RecyclerView.Adapter<MemeViewHolder> {
-    private List<Meme> data;
+class MemeAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+    private static final int TYPE_MEME = 1;
+    private static final int TYPE_ADD = 2;
 
-    public MemeAdapter(List<Meme> data){
+    private List<BaseModel> data;
+
+    public MemeAdapter(List<BaseModel> data){
         this.data = data;
 
     }
     @Override
-    public MemeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.meme_layout, parent, false);
-        MemeViewHolder vh = new MemeViewHolder(v);
+    public int getItemViewType(int position) {
+        BaseModel item = data.get(position);
+        if(item instanceof Meme)return TYPE_MEME;
+        return TYPE_ADD;
+    }
+    @Override
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v;
+        BaseViewHolder vh = null;
+        if(viewType == TYPE_MEME){
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.meme_layout, parent, false);
+            vh = new MemeViewHolder(v);
+        }else{
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_layout, parent, false);
+            vh = new AddViewHolder(v);
+        }
+
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(MemeViewHolder holder, int position) {
-        Meme item = data.get(position);
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
+        BaseModel item = data.get(position);
         holder.setData(item);
     }
 

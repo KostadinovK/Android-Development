@@ -19,7 +19,7 @@ import butterknife.OnClick;
  * Created by Kostadin Kostadinov on 02/03/2018.
  */
 
-class MemeViewHolder extends RecyclerView.ViewHolder{
+class MemeViewHolder extends BaseViewHolder<Meme>{
     @BindView(R.id.meme_title) TextView memeTitle;
     @BindView(R.id.meme_img) ImageView memeImg;
     @BindView(R.id.points) TextView points;
@@ -65,6 +65,7 @@ class MemeViewHolder extends RecyclerView.ViewHolder{
         context.startActivity(intent);
 
     }
+    @Override
     public void setData(Meme item){
         this.memeTitle.setText(item.getTitle());
         this.points.setText(item.getPoints());
