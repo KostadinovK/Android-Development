@@ -30,7 +30,7 @@ class PromotionViewHolder extends BaseViewHolder<Promotion>{
 
 
 
-    @OnClick
+    @OnClick(R.id.btn_buy)
     public void onBuyClicked(){
 
         btn_buy.setEnabled(false);

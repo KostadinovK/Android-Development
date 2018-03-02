@@ -50,4 +50,17 @@ public class Meme {
     public boolean isCommented() {
         return isCommented;
     }
+
+    public void setLiked() {
+        this.isLiked = true;
+        this.isDisliked = false;
+    }
+
+    public void setDisliked(boolean disliked) {
+        isDisliked = disliked;
+    }
+
+    public void setCommented(boolean commented) {
+        isCommented = commented;
+    }
 }
