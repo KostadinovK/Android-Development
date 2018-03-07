@@ -7,7 +7,7 @@
         android:id="@+id/add_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
+
         android:minHeight="260dp"
         />
     <Button

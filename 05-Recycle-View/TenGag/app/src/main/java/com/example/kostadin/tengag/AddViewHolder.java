@@ -34,7 +34,7 @@ public class AddViewHolder extends BaseViewHolder<Add> {
 
     @OnClick(R.id.btn_buy)
     public void onBuyClick(){
-        Uri uriUrl = Uri.parse("http://google.com");
+        Uri uriUrl = Uri.parse("https://www.google.bg/");
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         Context context = itemView.getContext();
         context.startActivity(launchBrowser);

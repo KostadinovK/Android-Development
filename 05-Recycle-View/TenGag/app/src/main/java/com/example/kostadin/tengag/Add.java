@@ -13,6 +13,9 @@ public class Add extends BaseModel{
     }
 
     public String getImageUrl() {
+
         return imageUrl;
     }
+
+
 }

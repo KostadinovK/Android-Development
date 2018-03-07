@@ -65,6 +65,7 @@ class MemeViewHolder extends BaseViewHolder<Meme>{
         context.startActivity(intent);
 
     }
+
     @Override
     public void setData(Meme item){
         this.memeTitle.setText(item.getTitle());
