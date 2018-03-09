@@ -44,7 +44,7 @@
                 android:text="@string/detail_also_known_as_label"
                 android:textStyle="bold"
                 android:layout_below="@+id/txt_name"
-                android:layout_marginTop="24dp"/>
+                android:layout_marginTop="36dp"/>
 
             <TextView
                 android:id="@+id/txt_ingredients"
@@ -102,7 +102,7 @@
                 android:text="@string/detail_description_label"
                 android:textStyle="bold"
                 android:layout_below="@+id/txt_placeOrigin"
-                android:layout_marginTop="24dp"/>
+                android:layout_marginTop="36dp"/>
         </RelativeLayout>
 
     </ScrollView>
