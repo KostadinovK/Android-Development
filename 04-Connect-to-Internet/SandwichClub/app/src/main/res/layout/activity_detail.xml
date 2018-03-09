@@ -4,56 +4,107 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.udacity.sandwichclub.DetailActivity">
-
-    <ImageView
-        android:id="@+id/image_iv"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/sandwich_picture_content_description"
-        android:scaleType="centerCrop" />
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/image_iv"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/sandwich_picture_content_description"
+                android:scaleType="centerCrop"
+                android:background="@color/colorAccent"
+                android:minHeight="200dp"/>
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Some name"
+                android:layout_below="@+id/image_iv"
+                />
 
-    <TextView
-        android:id="@+id/origin_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/origin_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txt_placeOrigin"
+                android:layout_alignBottom="@+id/txt_placeOrigin"
+                android:layout_toEndOf="@+id/txt_placeOrigin"
+                android:layout_toRightOf="@+id/txt_placeOrigin"
+                android:text="Some origin" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_also_known_as_label"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txt_alsoKnownAs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_also_known_as_label"
+                android:textStyle="bold"
+                android:layout_below="@+id/txt_name"
+                android:layout_marginTop="24dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_ingredients_label"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txt_ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_ingredients_label"
+                android:textStyle="bold"
+                android:layout_below="@+id/txt_alsoKnownAs"
+                android:layout_marginTop="36dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_place_of_origin_label"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txt_placeOrigin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txt_ingredients"
+                android:layout_marginTop="36dp"
+                android:text="@string/detail_place_of_origin_label"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/description_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/description_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txt_description"
+                android:layout_alignBottom="@+id/txt_description"
+                android:layout_toEndOf="@+id/txt_description"
+                android:layout_toRightOf="@+id/txt_description"
+                android:text="some description" />
 
-    <TextView
-        android:id="@+id/ingredients_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/ingredients_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txt_placeOrigin"
+                android:layout_alignEnd="@+id/description_tv"
+                android:layout_alignRight="@+id/description_tv"
+                android:text="some ingredients" />
 
-    <TextView
-        android:id="@+id/also_known_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/also_known_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txt_alsoKnownAs"
+                android:layout_alignBottom="@+id/txt_alsoKnownAs"
+                android:layout_toEndOf="@+id/txt_alsoKnownAs"
+                android:layout_toRightOf="@+id/txt_alsoKnownAs"
+                android:text="simple text" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_description_label"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_description_label"
+                android:textStyle="bold"
+                android:layout_below="@+id/txt_placeOrigin"
+                android:layout_marginTop="24dp"/>
+        </RelativeLayout>
+
+    </ScrollView>
+
 </FrameLayout>
