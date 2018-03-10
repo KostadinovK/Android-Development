@@ -59,11 +59,10 @@ class MemeViewHolder extends BaseViewHolder<Meme>{
     public void onCommentClicked(){
         int num = Integer.parseInt(this.comments.getText().toString());
         num++;
-        this.comments.setText(Integer.toString(num));
         Context context = itemView.getContext();
         Intent intent = new Intent(context,MessageSection.class);
         context.startActivity(intent);
-
+        this.comments.setText(Integer.toString(num));
     }
 
     @Override
