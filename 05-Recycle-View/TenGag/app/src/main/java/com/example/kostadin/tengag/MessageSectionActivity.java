@@ -18,7 +18,7 @@ import butterknife.OnClick;
  * Created by Kostadin Kostadinov on 02/03/2018.
  */
 
-public class MessageSection extends AppCompatActivity{
+public class MessageSectionActivity extends AppCompatActivity{
     @BindView(R.id.txt_message) TextView txt_message;
     @BindView(R.id.btn_send) Button btn_send;
     @BindView(R.id.btn_goBack) ImageButton goBack;
