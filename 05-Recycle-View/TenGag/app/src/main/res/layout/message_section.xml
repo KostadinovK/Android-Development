@@ -7,7 +7,7 @@
         android:id="@+id/btn_goBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_keyboard_arrow_left_black_36dp"
+        android:src="@drawable/ic_keyboard_arrow_left_black_36dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         />
