@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
     Intent intent;
     SharedPreferences preference;
-    BroadcastReceiver broadcastReceiver;
 
 
     @Override
@@ -50,54 +49,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         preference = PreferenceManager.getDefaultSharedPreferences(this);
         ButterKnife.bind(this);
-        if(!RuntimePermissions()){
-            intent = new Intent(this,LocationsService.class);
+        if (!RuntimePermissions()) {
+            intent = new Intent(this, LocationsService.class);
             startService(intent);
         }
 
-        if(preference != null)
-        mLocationsTextView.setText(preference.getAll().toString());
+        if (preference != null)
+            mLocationsTextView.setText(preference.getAll().toString());
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if(broadcastReceiver == null){
-            broadcastReceiver = new BroadcastReceiver() {
-                @Override
-                public void onReceive(Context context, Intent intent) {
 
-                    mLocationsTextView.append("\n" +intent.getExtras().get("coordinates"));
-
-                }
-            };
-        }
-        registerReceiver(broadcastReceiver,new IntentFilter("location_update"));
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if(broadcastReceiver != null){
-            unregisterReceiver(broadcastReceiver);
-        }
-    }
     @OnClick(R.id.btn_clear_data)
-    public void onClearDataClicked(){
+    public void onClearDataClicked() {
         preference.edit().clear().commit();
         mLocationsTextView.setText(preference.getAll().toString());
 
     }
+
     @OnClick(R.id.btn_get_current_loc)
-    public void stopService(){
+    public void stopService() {
         stopService(intent);
     }
 
     private boolean RuntimePermissions() {
-        if(Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+        if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},100);
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
 
             return true;
         }
@@ -107,10 +85,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == 100){
-            if( grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == 100) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 startService(intent);
-            }else {
+            } else {
                 RuntimePermissions();
             }
         }

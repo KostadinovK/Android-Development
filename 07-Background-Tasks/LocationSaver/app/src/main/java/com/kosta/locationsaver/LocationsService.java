@@ -39,7 +39,6 @@ public class LocationsService extends Service {
     private Timer mTimer = new Timer();
 
 
-
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -61,8 +60,7 @@ public class LocationsService extends Service {
             @Override
             public void onLocationChanged(Location location) {
 
-                Toast msg = Toast.makeText(LocationsService.this,location.toString(),Toast.LENGTH_SHORT);
-                msg.show();
+
             }
 
             @Override
@@ -77,31 +75,20 @@ public class LocationsService extends Service {
 
             @Override
             public void onProviderDisabled(String s) {
-                Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
+
             }
         };
 
 
         locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
         getLocation();
-        //noinspection MissingPermission
-        /*try {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 0, listener);
-            Location loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            Toast msg = Toast.makeText(LocationsService.this,loc.toString(),Toast.LENGTH_SHORT);
-            msg.show();
-        }catch (SecurityException e){
-            e.printStackTrace();
-        }*/
     }
 
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(locationManager != null){
+        if (locationManager != null) {
             //noinspection MissingPermission
             locationManager.removeUpdates(listener);
         }
@@ -117,9 +104,10 @@ public class LocationsService extends Service {
                         try {
                             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 0, listener);
                             Location loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                            Toast msg = Toast.makeText(LocationsService.this,loc.toString(),Toast.LENGTH_SHORT);
-                            msg.show();
-                        }catch (SecurityException e){
+                            double latitude = loc.getLatitude();
+                            double longitude = loc.getLongitude();
+                            preference.edit().putString(Integer.toString(new Random().nextInt(145)), "Latitude: " + latitude + "  Longitude: " + longitude + "\n").apply();
+                        } catch (SecurityException e) {
                             e.printStackTrace();
                         }
                     }
