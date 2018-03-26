@@ -96,6 +96,10 @@ public class LocationsService extends Service {
         msg.show();
     }
 
+    /*I have a issue that i cant solve. If i open the app without turn on location it stopped working whatever i make
+    also if i turn location on. So please open that app with turned on internet and location(GPS).
+     */
+
     private void getLocation() {
 
         scanTask = new TimerTask() {
