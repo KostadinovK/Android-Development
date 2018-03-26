@@ -24,6 +24,8 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -32,12 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.txt_locations)
     TextView mLocationsTextView;
-    @BindView(R.id.btn_get_current_loc)
-    Button mGetCurrentLocBtn;
-    @BindView(R.id.btn_clear_data)
-    Button mClearDataBtn;
-    @BindView(R.id.txt_current_loc)
-    TextView mCurrentLoc;
+
 
     Intent intent;
     SharedPreferences preference;
@@ -54,8 +51,13 @@ public class MainActivity extends AppCompatActivity {
             startService(intent);
         }
 
-        if (preference != null)
-            mLocationsTextView.setText(preference.getAll().toString());
+        if (preference != null){
+            Map<String,?> keys = preference.getAll();
+            for(Map.Entry<String,?> entry : keys.entrySet()){
+                mLocationsTextView.append(entry.getValue().toString() + "\n\n\n");
+            }
+        }
+            //mLocationsTextView.setText(preference.getAll().toString());
 
     }
 
@@ -67,9 +69,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.btn_get_current_loc)
+    @OnClick(R.id.btn_stop_service)
     public void stopService() {
         stopService(intent);
+
     }
 
     private boolean RuntimePermissions() {

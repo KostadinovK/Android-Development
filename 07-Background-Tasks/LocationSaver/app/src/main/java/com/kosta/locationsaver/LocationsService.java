@@ -92,6 +92,8 @@ public class LocationsService extends Service {
             //noinspection MissingPermission
             locationManager.removeUpdates(listener);
         }
+        Toast msg = Toast.makeText(this,"Service has stopped...",Toast.LENGTH_SHORT);
+        msg.show();
     }
 
     private void getLocation() {
@@ -106,7 +108,7 @@ public class LocationsService extends Service {
                             Location loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                             double latitude = loc.getLatitude();
                             double longitude = loc.getLongitude();
-                            preference.edit().putString(Integer.toString(new Random().nextInt(145)), "Latitude: " + latitude + "  Longitude: " + longitude + "\n").apply();
+                            preference.edit().putString(Integer.toString(new Random().nextInt(145)), "Latitude: " + latitude +"\n"+ "Longitude: " + longitude).apply();
                         } catch (SecurityException e) {
                             e.printStackTrace();
                         }
