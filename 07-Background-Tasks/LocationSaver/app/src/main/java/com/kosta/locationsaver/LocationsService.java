@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.location.LocationServices;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -95,10 +96,7 @@ public class LocationsService extends Service {
         Toast msg = Toast.makeText(this,"Service has stopped...",Toast.LENGTH_SHORT);
         msg.show();
     }
-
-    /*I have an issue that i cant solve. If i open the app without turned on location it stopps working whatever i make,
-    also if i turn location on. So please open the app with turned on internet and location(GPS).
-     */
+    
 
     private void getLocation() {
 
@@ -108,8 +106,8 @@ public class LocationsService extends Service {
                     public void run() {
 
                         try {
-                            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 0, listener);
-                            Location loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 20000, 0, listener);
+                            Location loc = getLastKnownLocation();
                             double latitude = loc.getLatitude();
                             double longitude = loc.getLongitude();
                             preference.edit().putString(Integer.toString(new Random().nextInt(Integer.MAX_VALUE)), "Latitude: " + latitude +"\n"+ "Longitude: " + longitude).apply();
@@ -120,9 +118,32 @@ public class LocationsService extends Service {
                 });
             }
         };
-
-        mTimer.schedule(scanTask, 1000, 10000);
+        // somehow magically this is 10 seconds
+        mTimer.schedule(scanTask, 1000, 20000);
     }
 
+
+    private Location getLastKnownLocation() {
+        locationManager = (LocationManager)getApplicationContext().getSystemService(LOCATION_SERVICE);
+        Location l = null;
+        List<String> providers = locationManager.getProviders(true);
+        Location bestLocation = null;
+        for (String provider : providers) {
+            try{
+                l = locationManager.getLastKnownLocation(provider);
+            }catch (SecurityException e){
+                e.printStackTrace();
+            }
+
+            if (l == null) {
+                continue;
+            }
+            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+
+                bestLocation = l;
+            }
+        }
+        return bestLocation;
+    }
 
 }
