@@ -108,7 +108,7 @@ public class LocationsService extends Service {
                             Location loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                             double latitude = loc.getLatitude();
                             double longitude = loc.getLongitude();
-                            preference.edit().putString(Integer.toString(new Random().nextInt(145)), "Latitude: " + latitude +"\n"+ "Longitude: " + longitude).apply();
+                            preference.edit().putString(Integer.toString(new Random().nextInt(Integer.MAX_VALUE)), "Latitude: " + latitude +"\n"+ "Longitude: " + longitude).apply();
                         } catch (SecurityException e) {
                             e.printStackTrace();
                         }
