@@ -1,0 +1,134 @@
+package com.kosta.locationsaver;
+
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.preference.PreferenceManager;
+
+import android.provider.Settings;
+import android.support.annotation.Nullable;
+
+import android.util.Log;
+import android.widget.Toast;
+
+import com.google.android.gms.location.LocationServices;
+
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+
+
+public class LocationsService extends Service {
+
+    private LocationListener listener;
+    private LocationManager locationManager;
+
+    private Context context;
+    private SharedPreferences preference;
+
+    private TimerTask scanTask;
+    private final Handler handler = new Handler();
+    private Timer mTimer = new Timer();
+
+
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        preference = PreferenceManager.getDefaultSharedPreferences(this);
+        locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+        super.onStartCommand(intent, flags, startId);
+        return START_STICKY;
+    }
+
+    @Override
+    public void onCreate() {
+
+        listener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+
+                Toast msg = Toast.makeText(LocationsService.this,location.toString(),Toast.LENGTH_SHORT);
+                msg.show();
+            }
+
+            @Override
+            public void onStatusChanged(String s, int i, Bundle bundle) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String s) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String s) {
+                Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+            }
+        };
+
+
+        locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+        getLocation();
+        //noinspection MissingPermission
+        /*try {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 0, listener);
+            Location loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            Toast msg = Toast.makeText(LocationsService.this,loc.toString(),Toast.LENGTH_SHORT);
+            msg.show();
+        }catch (SecurityException e){
+            e.printStackTrace();
+        }*/
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(locationManager != null){
+            //noinspection MissingPermission
+            locationManager.removeUpdates(listener);
+        }
+    }
+
+    private void getLocation() {
+
+        scanTask = new TimerTask() {
+            public void run() {
+                handler.post(new Runnable() {
+                    public void run() {
+
+                        try {
+                            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 0, listener);
+                            Location loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                            Toast msg = Toast.makeText(LocationsService.this,loc.toString(),Toast.LENGTH_SHORT);
+                            msg.show();
+                        }catch (SecurityException e){
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        };
+
+        mTimer.schedule(scanTask, 1000, 10000);
+    }
+
+
+}
