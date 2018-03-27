@@ -96,7 +96,7 @@ public class LocationsService extends Service {
         Toast msg = Toast.makeText(this,"Service has stopped...",Toast.LENGTH_SHORT);
         msg.show();
     }
-    
+
 
     private void getLocation() {
 
