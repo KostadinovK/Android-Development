@@ -3,36 +3,48 @@ package com.kosta.homework;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
-import android.widget.Toolbar;
+
 
 import com.kosta.homework.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
-    Toolbar toolbar;
-    ActivityMainBinding binding;
+import butterknife.BindView;
+import butterknife.OnClick;
 
-    BottomNavigationView bottomNavigationView;
+public class MainActivity extends AppCompatActivity {
+
+    Toolbar toolbar;
+
+    ActivityMainBinding binding;
+    @BindView(R.id.fab) FloatingActionButton floatingBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
         setSupportActionBar(binding.toolbar);
         setupBottomNavigation();
 
     }
-
+    @OnClick(R.id.fab)
+    public void onFloatingBtnClicked(){
+        Toast msg = Toast.makeText(this,"Not available...",Toast.LENGTH_SHORT);
+        msg.show();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -52,19 +64,19 @@ public class MainActivity extends AppCompatActivity {
     // for the Bottom Navigation Menu
     private void setupBottomNavigation() {
 
-        bottomNavigationView = (BottomNavigationView)
-                findViewById(R.id.bottom_nav);
 
-        bottomNavigationView.setSelectedItemId(R.id.item_feed);
-        Menu menu = bottomNavigationView.getMenu();
+
+        binding.bottomNav.setSelectedItemId(R.id.item_feed);
+        Menu menu = binding.bottomNav.getMenu();
         selectFragment(menu.getItem(0));
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        binding.bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (getSupportActionBar() != null) {
                     getSupportActionBar().setTitle(item.getTitle());
                 }
                 selectFragment(item);
+
                 return false;
             }
         });
@@ -81,19 +93,20 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item_feed:
 
                 pushFragment(new FeedFragment());
-               // toolbar.setElevation(0);
+                item.setIcon(R.drawable.feed_red);
+
                 break;
             case R.id.item_gifts:
-                Toast msg = Toast.makeText(this,"This section isn't available yet...",Toast.LENGTH_SHORT);
-                msg.show();
+                item.setIcon(R.drawable.gifts_red);
+                pushFragment(new NotAvailableFragment());
                 break;
             case R.id.item_scanner:
-                Toast msg2 = Toast.makeText(this,"This section isn't available yet...",Toast.LENGTH_SHORT);
-                msg2.show();
+                item.setIcon(R.drawable.scanner_red);
+                pushFragment(new NotAvailableFragment());
                 break;
             case R.id.item_profile:
-                Toast msg3 = Toast.makeText(this,"This section isn't available yet...",Toast.LENGTH_SHORT);
-                msg3.show();
+                item.setIcon(R.drawable.profile_red);
+                pushFragment(new NotAvailableFragment());
                 break;
         }
     }

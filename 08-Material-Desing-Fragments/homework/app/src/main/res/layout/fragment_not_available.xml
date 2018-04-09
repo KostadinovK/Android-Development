@@ -1,0 +1,16 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Sorry, this section isn't available yet."
+        android:textColor="@color/colorPrimary"
+        android:textSize="64dp"
+        android:gravity="center"
+        android:background="@color/white"
+        />
+
+</FrameLayout>

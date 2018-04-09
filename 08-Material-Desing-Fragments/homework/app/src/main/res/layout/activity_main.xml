@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg">
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"
+    app:title="FEED"
+    app:titleTextColor="#fff"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    >
+</android.support.v7.widget.Toolbar>
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/grp_coordinator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="horizontal">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        android:layout_above="@+id/bottom_nav"
+        android:layout_below="@id/toolbar">
+
+        <FrameLayout
+            android:id="@+id/grp_container"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            app:title="FEED"
-            app:titleTextColor="#fff"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            >
-        </android.support.v7.widget.Toolbar>
+            android:layout_height="match_parent" >
 
-        <android.support.design.widget.CoordinatorLayout
-            android:id="@+id/grp_coordinator"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-            <FrameLayout
-                android:id="@+id/grp_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </android.support.design.widget.CoordinatorLayout>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="246dp"
+                android:layout_height="46dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                app:backgroundTint="@color/colorPrimary"
+                android:padding="64dp"
+                android:src="@drawable/add"
+                />
+        </FrameLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
 
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/bottom_nav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="bottom"
-            app:itemBackground="@android:color/black"
-            app:layout_anchor="@+id/grp_container"
-            app:layout_anchorGravity="bottom"
-            app:menu="@menu/bottom_nav_menu" />
-    </LinearLayout>
+
+<android.support.design.widget.BottomNavigationView
+    android:id="@+id/bottom_nav"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    app:menu="@menu/bottom_nav_menu" />
+
+</RelativeLayout>
 </layout>
-
