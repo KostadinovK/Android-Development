@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,24 +22,33 @@ import android.widget.Toast;
 
 import com.kosta.homework.databinding.ActivityMainBinding;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
-
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    ActivityMainBinding binding;
+    //ActivityMainBinding binding;
     @BindView(R.id.fab) FloatingActionButton floatingBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        //binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        setSupportActionBar(binding.toolbar);
+        setSupportActionBar(toolbar);
         setupBottomNavigation();
+
+        AppDatabase appDatabase = new AppDatabase(this);
+        RecyclerView recyclerView = findViewById(R.id.rec_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<Post> data = AppDatabase.getData();
+        PostAdapter postAdapter = new PostAdapter(data);
+        recyclerView.setAdapter(postAdapter);
 
     }
     @OnClick(R.id.fab)
@@ -65,11 +76,11 @@ public class MainActivity extends AppCompatActivity {
     private void setupBottomNavigation() {
 
 
-
-        binding.bottomNav.setSelectedItemId(R.id.item_feed);
-        Menu menu = binding.bottomNav.getMenu();
+        BottomNavigationView bottomNav = (BottomNavigationView) findViewById(R.id.bottom_nav);
+        bottomNav.setSelectedItemId(R.id.item_feed);
+        Menu menu = bottomNav.getMenu();
         selectFragment(menu.getItem(0));
-        binding.bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (getSupportActionBar() != null) {

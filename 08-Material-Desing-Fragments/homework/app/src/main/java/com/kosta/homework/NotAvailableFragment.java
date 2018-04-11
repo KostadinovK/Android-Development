@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 
 
 public class NotAvailableFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

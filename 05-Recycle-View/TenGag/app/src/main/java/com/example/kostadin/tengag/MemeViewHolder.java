@@ -71,6 +71,6 @@ class MemeViewHolder extends BaseViewHolder<Meme>{
         this.points.setText(item.getPoints());
         this.comments.setText(item.getComments());
         Picasso.with(itemView.getContext()).load(item.getMemeUrl()).into(memeImg);
-
+        this.
     }
 }
