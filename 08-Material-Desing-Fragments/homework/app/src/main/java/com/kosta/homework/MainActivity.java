@@ -17,11 +17,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
 import com.kosta.homework.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -32,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
 
     //ActivityMainBinding binding;
-    @BindView(R.id.fab) FloatingActionButton floatingBtn;
+    @BindView(R.id.fab)
+    FloatingActionButton floatingBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,36 +46,42 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         setupBottomNavigation();
+       // List<Post> data = new ArrayList<>();
+        ImageView profile = findViewById(R.id.img_avatar);
+        ImageButton option = findViewById(R.id.ibtn_more);
+        ImageView picture = findViewById(R.id.img_picture);
+        ImageButton sock = findViewById(R.id.btn_sock);
+        ImageButton share = findViewById(R.id.btn_share);
+        Post post = new Post(profile, "FRANCISCO WATSON", "TODAY, 10:52PM", option, picture, "Lorem ipsum dolor sit amet", sock, 31, share, "Send a gift");
+        //data.add(post);
+        StoriesFragment.data.add(post);
 
-        AppDatabase appDatabase = new AppDatabase(this);
-        RecyclerView recyclerView = findViewById(R.id.rec_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<Post> data = AppDatabase.getData();
-        PostAdapter postAdapter = new PostAdapter(data);
-        recyclerView.setAdapter(postAdapter);
 
     }
+
     @OnClick(R.id.fab)
-    public void onFloatingBtnClicked(){
-        Toast msg = Toast.makeText(this,"Not available...",Toast.LENGTH_SHORT);
+    public void onFloatingBtnClicked() {
+        Toast msg = Toast.makeText(this, "Not available...", Toast.LENGTH_SHORT);
         msg.show();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_options_menu,menu);
+        inflater.inflate(R.menu.toolbar_options_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.search_option){
-            Toast msg = Toast.makeText(this,"Not available...",Toast.LENGTH_SHORT);
+        if (id == R.id.search_option) {
+            Toast msg = Toast.makeText(this, "Not available...", Toast.LENGTH_SHORT);
             msg.show();
         }
         return super.onOptionsItemSelected(item);
     }
+
     // for the Bottom Navigation Menu
     private void setupBottomNavigation() {
 
@@ -95,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void selectFragment(MenuItem item) {
         item.setChecked(true);
-        if(item != null){
+        if (item != null) {
             //toolbar.setElevation(4);
         }
 

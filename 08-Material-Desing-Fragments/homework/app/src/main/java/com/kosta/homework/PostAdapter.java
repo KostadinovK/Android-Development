@@ -16,10 +16,11 @@ class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     private List<Post> data;
 
-    public PostAdapter(List<Post> data){
+    public PostAdapter(List<Post> data) {
         this.data = data;
 
     }
+
     @NonNull
     @Override
     public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

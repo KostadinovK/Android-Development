@@ -20,8 +20,8 @@ public class Post {
     private ImageButton share;
     private String sendGift;
 
-
-    public Post(){}
+    public Post() {
+    }
 
     public Post(ImageView profilePicture, String username, String dateAndTime,
                 ImageButton moreOptionsImageBtn, ImageView picture, String description,
@@ -38,8 +38,9 @@ public class Post {
         this.sendGift = sendGift;
     }
 
-    public Drawable getProfilePictureDrawable() {
-        return profilePicture.getDrawable();
+
+    public ImageView getProfilePicture() {
+        return profilePicture;
     }
 
     public void setProfilePicture(ImageView profilePicture) {
@@ -62,16 +63,16 @@ public class Post {
         this.dateAndTime = dateAndTime;
     }
 
-    public Drawable getMoreOptionsImageBtnDrawable() {
-        return moreOptionsImageBtn.getDrawable();
+    public ImageButton getMoreOptionsImageBtn() {
+        return moreOptionsImageBtn;
     }
 
     public void setMoreOptionsImageBtn(ImageButton moreOptionsImageBtn) {
         this.moreOptionsImageBtn = moreOptionsImageBtn;
     }
 
-    public Drawable getPictureDrawable() {
-        return picture.getDrawable();
+    public ImageView getPicture() {
+        return picture;
     }
 
     public void setPicture(ImageView picture) {
@@ -86,8 +87,8 @@ public class Post {
         this.description = description;
     }
 
-    public Drawable getSockDrawable() {
-        return sock.getDrawable();
+    public ImageButton getSock() {
+        return sock;
     }
 
     public void setSock(ImageButton sock) {
@@ -102,8 +103,8 @@ public class Post {
         this.likes = likes;
     }
 
-    public Drawable getShareDrawable() {
-        return share.getDrawable();
+    public ImageButton getShare() {
+        return share;
     }
 
     public void setShare(ImageButton share) {

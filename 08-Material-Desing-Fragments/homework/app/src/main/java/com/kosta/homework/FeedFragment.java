@@ -32,7 +32,7 @@ public class FeedFragment extends Fragment {
 
 
         final PagerAdapter adapter = new PagerAdapter
-                (getFragmentManager(),2);
+                (getFragmentManager(), 2);
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
