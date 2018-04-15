@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
             mProductInfo.setText(code + " " + s + " " + s2);
             Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show();
-        
+
 
     }
 }
