@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#4071C9"
+    android:padding="36dp">
+    <LinearLayout
+        android:id="@+id/ll_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txt_detail_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="04/07 23:00"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            />
+        <TextView
+            android:id="@+id/txt_detail_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clouds"
+            android:textSize="36dp"
+            android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/txt_details_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="strong clouds "
+            android:textColor="#fff"
+            android:textSize="16dp"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txt_detail_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9C"
+        android:textColor="#fff"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="26dp"
+        android:textSize="48sp"/>
+</LinearLayout>

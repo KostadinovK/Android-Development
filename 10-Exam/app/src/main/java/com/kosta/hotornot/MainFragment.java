@@ -1,6 +1,6 @@
-package com.kosta.homework;
+package com.kosta.hotornot;
 
-import android.databinding.DataBindingUtil;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -10,23 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by Kostadin Kostadinov on 30/03/2018.
- */
-
-public class FeedFragment extends Fragment {
-
+public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         //getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        View rootView = inflater.inflate(R.layout.fragment_feed, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         final ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.view_pager_tab);
         TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("STORIES"));
-        tabLayout.addTab(tabLayout.newTab().setText("CAMPAIGNS"));
+        tabLayout.addTab(tabLayout.newTab().setText("OVERALL"));
+        tabLayout.addTab(tabLayout.newTab().setText("DETAILS"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 
@@ -52,4 +47,5 @@ public class FeedFragment extends Fragment {
         });
         return rootView;
     }
+
 }
